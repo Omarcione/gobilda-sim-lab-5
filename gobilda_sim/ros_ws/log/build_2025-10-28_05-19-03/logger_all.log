@@ -1,0 +1,332 @@
+[0.423s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.423s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f3b02dd4ee0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f3b02ed16c0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f3b02ed16c0>>, mixin_verb=('build',))
+[0.986s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.990s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/Gazebo.meta'
+[0.992s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastrtps.meta'
+[0.992s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.992s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.992s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.993s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.993s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.993s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/gobilda_sim/ros_ws'
+[0.993s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.993s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.994s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.994s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.994s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.994s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.994s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.994s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.994s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.049s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.050s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.050s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.050s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.050s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.051s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.051s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.051s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.053s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.053s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.053s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.054s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.054s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.054s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.054s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.055s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.056s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.056s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.056s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.056s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extensions ['ignore', 'ignore_ament_install']
+[1.056s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extension 'ignore'
+[1.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extension 'ignore_ament_install'
+[1.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extensions ['colcon_pkg']
+[1.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extension 'colcon_pkg'
+[1.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extensions ['colcon_meta']
+[1.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extension 'colcon_meta'
+[1.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extensions ['ros']
+[1.058s] Level 1:colcon.colcon_core.package_identification:_identify(src/bump_and_go_lidar) by extension 'ros'
+[1.072s] DEBUG:colcon.colcon_core.package_identification:Package 'src/bump_and_go_lidar' with type 'ros.ament_python' and name 'bump_and_go_lidar'
+[1.072s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extensions ['ignore', 'ignore_ament_install']
+[1.072s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extension 'ignore'
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extension 'ignore_ament_install'
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extensions ['colcon_pkg']
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extension 'colcon_pkg'
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extensions ['colcon_meta']
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extension 'colcon_meta'
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extensions ['ros']
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extension 'ros'
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extensions ['cmake', 'python']
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extension 'cmake'
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extension 'python'
+[1.073s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extensions ['python_setup_py']
+[1.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project) by extension 'python_setup_py'
+[1.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extensions ['ignore', 'ignore_ament_install']
+[1.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extension 'ignore'
+[1.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extension 'ignore_ament_install'
+[1.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extensions ['colcon_pkg']
+[1.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extension 'colcon_pkg'
+[1.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extensions ['colcon_meta']
+[1.075s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extension 'colcon_meta'
+[1.075s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extensions ['ros']
+[1.075s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_bringup) by extension 'ros'
+[1.077s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros_gz_project/ros_gz_example_bringup' with type 'ros.ament_cmake' and name 'ros_gz_example_bringup'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extensions ['ignore', 'ignore_ament_install']
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extension 'ignore'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extension 'ignore_ament_install'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extensions ['colcon_pkg']
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extension 'colcon_pkg'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extensions ['colcon_meta']
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extension 'colcon_meta'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extensions ['ros']
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_description) by extension 'ros'
+[1.080s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros_gz_project/ros_gz_example_description' with type 'ros.ament_cmake' and name 'ros_gz_example_description'
+[1.080s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extensions ['ignore', 'ignore_ament_install']
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extension 'ignore'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extension 'ignore_ament_install'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extensions ['colcon_pkg']
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extension 'colcon_pkg'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extensions ['colcon_meta']
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extension 'colcon_meta'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extensions ['ros']
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_gz_project/ros_gz_example_gazebo) by extension 'ros'
+[1.083s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros_gz_project/ros_gz_example_gazebo' with type 'ros.ament_cmake' and name 'ros_gz_example_gazebo'
+[1.083s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.084s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.084s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.084s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.084s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'cmake_args' from command line to 'None'
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'cmake_target' from command line to 'None'
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'cmake_clean_cache' from command line to 'False'
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'cmake_clean_first' from command line to 'False'
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'cmake_force_configure' from command line to 'False'
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'ament_cmake_args' from command line to 'None'
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'catkin_cmake_args' from command line to 'None'
+[1.164s] Level 5:colcon.colcon_core.verb:set package 'bump_and_go_lidar' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.165s] DEBUG:colcon.colcon_core.verb:Building package 'bump_and_go_lidar' with the following arguments: {'ament_cmake_args': None, 'build_base': '/gobilda_sim/ros_ws/build/bump_and_go_lidar', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/gobilda_sim/ros_ws/install/bump_and_go_lidar', 'merge_install': False, 'path': '/gobilda_sim/ros_ws/src/bump_and_go_lidar', 'symlink_install': True, 'test_result_base': None}
+[1.165s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'cmake_args' from command line to 'None'
+[1.166s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'cmake_target' from command line to 'None'
+[1.166s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.166s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'cmake_clean_cache' from command line to 'False'
+[1.166s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'cmake_clean_first' from command line to 'False'
+[1.166s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'cmake_force_configure' from command line to 'False'
+[1.166s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'ament_cmake_args' from command line to 'None'
+[1.166s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'catkin_cmake_args' from command line to 'None'
+[1.166s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.166s] DEBUG:colcon.colcon_core.verb:Building package 'ros_gz_example_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/gobilda_sim/ros_ws/build/ros_gz_example_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/gobilda_sim/ros_ws/install/ros_gz_example_description', 'merge_install': False, 'path': '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_description', 'symlink_install': True, 'test_result_base': None}
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'cmake_args' from command line to 'None'
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'cmake_target' from command line to 'None'
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'cmake_clean_cache' from command line to 'False'
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'cmake_clean_first' from command line to 'False'
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'cmake_force_configure' from command line to 'False'
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'ament_cmake_args' from command line to 'None'
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'catkin_cmake_args' from command line to 'None'
+[1.167s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_gazebo' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.167s] DEBUG:colcon.colcon_core.verb:Building package 'ros_gz_example_gazebo' with the following arguments: {'ament_cmake_args': None, 'build_base': '/gobilda_sim/ros_ws/build/ros_gz_example_gazebo', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo', 'merge_install': False, 'path': '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_gazebo', 'symlink_install': True, 'test_result_base': None}
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'cmake_args' from command line to 'None'
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'cmake_target' from command line to 'None'
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[1.168s] Level 5:colcon.colcon_core.verb:set package 'ros_gz_example_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.169s] DEBUG:colcon.colcon_core.verb:Building package 'ros_gz_example_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/gobilda_sim/ros_ws/build/ros_gz_example_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/gobilda_sim/ros_ws/install/ros_gz_example_bringup', 'merge_install': False, 'path': '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_bringup', 'symlink_install': True, 'test_result_base': None}
+[1.169s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.174s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.174s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_description' with build type 'ament_cmake'
+[1.175s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_description'
+[1.183s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.184s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.184s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.210s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/gobilda_sim/ros_ws/src/bump_and_go_lidar' with build type 'ament_python'
+[1.211s] Level 1:colcon.colcon_core.shell:create_environment_hook('bump_and_go_lidar', 'ament_prefix_path')
+[1.212s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/hook/ament_prefix_path.ps1'
+[1.215s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/hook/ament_prefix_path.dsv'
+[1.217s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/hook/ament_prefix_path.sh'
+[1.221s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.221s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.273s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/gobilda_sim/ros_ws/build/ros_gz_example_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar /usr/bin/cmake --build /gobilda_sim/ros_ws/build/ros_gz_example_description -- -j16 -l16
+[1.950s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/gobilda_sim/ros_ws/src/bump_and_go_lidar'
+[1.951s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.951s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.965s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/gobilda_sim/ros_ws/build/ros_gz_example_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar /usr/bin/cmake --build /gobilda_sim/ros_ws/build/ros_gz_example_description -- -j16 -l16
+[2.055s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/gobilda_sim/ros_ws/build/ros_gz_example_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar /usr/bin/cmake --install /gobilda_sim/ros_ws/build/ros_gz_example_description
+[2.121s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_gz_example_description)
+[2.123s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/gobilda_sim/ros_ws/build/ros_gz_example_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar /usr/bin/cmake --install /gobilda_sim/ros_ws/build/ros_gz_example_description
+[2.135s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description' for CMake module files
+[2.136s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description' for CMake config files
+[2.137s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_gz_example_description', 'cmake_prefix_path')
+[2.138s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/hook/cmake_prefix_path.ps1'
+[2.139s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/hook/cmake_prefix_path.dsv'
+[2.140s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/hook/cmake_prefix_path.sh'
+[2.142s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description/bin'
+[2.142s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description/lib/pkgconfig/ros_gz_example_description.pc'
+[2.143s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description/lib/python3.10/site-packages'
+[2.144s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description/bin'
+[2.146s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.ps1'
+[2.149s] INFO:colcon.colcon_core.shell:Creating package descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.dsv'
+[2.151s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.sh'
+[2.154s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.bash'
+[2.156s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.zsh'
+[2.159s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/gobilda_sim/ros_ws/install/ros_gz_example_description/share/colcon-core/packages/ros_gz_example_description)
+[2.221s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_gz_example_description)
+[2.222s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description' for CMake module files
+[2.223s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description' for CMake config files
+[2.223s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_gz_example_description', 'cmake_prefix_path')
+[2.224s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/hook/cmake_prefix_path.ps1'
+[2.225s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/hook/cmake_prefix_path.dsv'
+[2.226s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/hook/cmake_prefix_path.sh'
+[2.227s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description/bin'
+[2.227s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description/lib/pkgconfig/ros_gz_example_description.pc'
+[2.228s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description/lib/python3.10/site-packages'
+[2.228s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_description/bin'
+[2.229s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.ps1'
+[2.230s] INFO:colcon.colcon_core.shell:Creating package descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.dsv'
+[2.231s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.sh'
+[2.232s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.bash'
+[2.234s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/package.zsh'
+[2.235s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/gobilda_sim/ros_ws/install/ros_gz_example_description/share/colcon-core/packages/ros_gz_example_description)
+[2.236s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_gazebo' with build type 'ament_cmake'
+[2.236s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_gazebo'
+[2.237s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.237s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.288s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/gobilda_sim/ros_ws/build/ros_gz_example_gazebo': CMAKE_PREFIX_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description:/gobilda_sim/ros_ws/install/ros_gz_example_bringup:/gobilda_sim/ros_ws/install/ros_gz_example_gazebo:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar IGN_GAZEBO_RESOURCE_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/models:${IGN_GAZEBO_RESOURCE_PATH} /usr/bin/cmake --build /gobilda_sim/ros_ws/build/ros_gz_example_gazebo -- -j16 -l16
+[2.486s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/gobilda_sim/ros_ws/build/ros_gz_example_gazebo' returned '0': CMAKE_PREFIX_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description:/gobilda_sim/ros_ws/install/ros_gz_example_bringup:/gobilda_sim/ros_ws/install/ros_gz_example_gazebo:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar IGN_GAZEBO_RESOURCE_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/models:${IGN_GAZEBO_RESOURCE_PATH} /usr/bin/cmake --build /gobilda_sim/ros_ws/build/ros_gz_example_gazebo -- -j16 -l16
+[2.589s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/gobilda_sim/ros_ws/build/ros_gz_example_gazebo': CMAKE_PREFIX_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description:/gobilda_sim/ros_ws/install/ros_gz_example_bringup:/gobilda_sim/ros_ws/install/ros_gz_example_gazebo:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar IGN_GAZEBO_RESOURCE_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/models:${IGN_GAZEBO_RESOURCE_PATH} /usr/bin/cmake --install /gobilda_sim/ros_ws/build/ros_gz_example_gazebo
+[2.643s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_gz_example_gazebo)
+[2.644s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo' for CMake module files
+[2.645s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/gobilda_sim/ros_ws/build/ros_gz_example_gazebo' returned '0': CMAKE_PREFIX_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description:/gobilda_sim/ros_ws/install/ros_gz_example_bringup:/gobilda_sim/ros_ws/install/ros_gz_example_gazebo:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar IGN_GAZEBO_RESOURCE_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/models:${IGN_GAZEBO_RESOURCE_PATH} /usr/bin/cmake --install /gobilda_sim/ros_ws/build/ros_gz_example_gazebo
+[2.646s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo' for CMake config files
+[2.647s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_gz_example_gazebo', 'cmake_prefix_path')
+[2.648s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/hook/cmake_prefix_path.ps1'
+[2.650s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/hook/cmake_prefix_path.dsv'
+[2.650s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/hook/cmake_prefix_path.sh'
+[2.652s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib'
+[2.653s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/bin'
+[2.653s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib/pkgconfig/ros_gz_example_gazebo.pc'
+[2.653s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib/python3.10/site-packages'
+[2.654s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/bin'
+[2.655s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.ps1'
+[2.656s] INFO:colcon.colcon_core.shell:Creating package descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.dsv'
+[2.657s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.sh'
+[2.659s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.bash'
+[2.661s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.zsh'
+[2.662s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/colcon-core/packages/ros_gz_example_gazebo)
+[2.739s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_gz_example_gazebo)
+[2.740s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo' for CMake module files
+[2.741s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo' for CMake config files
+[2.741s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_gz_example_gazebo', 'cmake_prefix_path')
+[2.742s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/hook/cmake_prefix_path.ps1'
+[2.743s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/hook/cmake_prefix_path.dsv'
+[2.744s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/hook/cmake_prefix_path.sh'
+[2.745s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib'
+[2.745s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/bin'
+[2.746s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib/pkgconfig/ros_gz_example_gazebo.pc'
+[2.746s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib/python3.10/site-packages'
+[2.747s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/bin'
+[2.747s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.ps1'
+[2.748s] INFO:colcon.colcon_core.shell:Creating package descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.dsv'
+[2.749s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.sh'
+[2.751s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.bash'
+[2.752s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/ros_gz_example_gazebo/package.zsh'
+[2.753s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/share/colcon-core/packages/ros_gz_example_gazebo)
+[2.755s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_bringup' with build type 'ament_cmake'
+[2.755s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/gobilda_sim/ros_ws/src/ros_gz_project/ros_gz_example_bringup'
+[2.756s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.756s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.785s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/gobilda_sim/ros_ws/build/ros_gz_example_bringup': CMAKE_PREFIX_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_gazebo:/gobilda_sim/ros_ws/install/ros_gz_example_description:/gobilda_sim/ros_ws/install/ros_gz_example_bringup:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar IGN_GAZEBO_PLUGIN_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib/ros_gz_example_gazebo IGN_GAZEBO_RESOURCE_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/models:${IGN_GAZEBO_RESOURCE_PATH} /usr/bin/cmake --build /gobilda_sim/ros_ws/build/ros_gz_example_bringup -- -j16 -l16
+[2.886s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/gobilda_sim/ros_ws/build/bump_and_go_lidar': PYTHONPATH=/gobilda_sim/ros_ws/build/bump_and_go_lidar/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /gobilda_sim/ros_ws/build/bump_and_go_lidar/build --no-deps symlink_data
+[2.887s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/gobilda_sim/ros_ws/build/ros_gz_example_bringup' returned '0': CMAKE_PREFIX_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_gazebo:/gobilda_sim/ros_ws/install/ros_gz_example_description:/gobilda_sim/ros_ws/install/ros_gz_example_bringup:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar IGN_GAZEBO_PLUGIN_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib/ros_gz_example_gazebo IGN_GAZEBO_RESOURCE_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/models:${IGN_GAZEBO_RESOURCE_PATH} /usr/bin/cmake --build /gobilda_sim/ros_ws/build/ros_gz_example_bringup -- -j16 -l16
+[2.956s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/gobilda_sim/ros_ws/build/ros_gz_example_bringup': CMAKE_PREFIX_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_gazebo:/gobilda_sim/ros_ws/install/ros_gz_example_description:/gobilda_sim/ros_ws/install/ros_gz_example_bringup:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar IGN_GAZEBO_PLUGIN_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib/ros_gz_example_gazebo IGN_GAZEBO_RESOURCE_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/models:${IGN_GAZEBO_RESOURCE_PATH} /usr/bin/cmake --install /gobilda_sim/ros_ws/build/ros_gz_example_bringup
+[3.005s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_gz_example_bringup)
+[3.006s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup' for CMake module files
+[3.006s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/gobilda_sim/ros_ws/build/ros_gz_example_bringup' returned '0': CMAKE_PREFIX_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_gazebo:/gobilda_sim/ros_ws/install/ros_gz_example_description:/gobilda_sim/ros_ws/install/ros_gz_example_bringup:/opt/ros/humble:/gobilda_sim/ros_ws/install/bump_and_go_lidar IGN_GAZEBO_PLUGIN_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_gazebo/lib/ros_gz_example_gazebo IGN_GAZEBO_RESOURCE_PATH=/gobilda_sim/ros_ws/install/ros_gz_example_description/share/ros_gz_example_description/models:${IGN_GAZEBO_RESOURCE_PATH} /usr/bin/cmake --install /gobilda_sim/ros_ws/build/ros_gz_example_bringup
+[3.009s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup' for CMake config files
+[3.010s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_gz_example_bringup', 'cmake_prefix_path')
+[3.010s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/hook/cmake_prefix_path.ps1'
+[3.012s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/hook/cmake_prefix_path.dsv'
+[3.014s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/hook/cmake_prefix_path.sh'
+[3.016s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/bin'
+[3.016s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/lib/pkgconfig/ros_gz_example_bringup.pc'
+[3.017s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/lib/python3.10/site-packages'
+[3.018s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/bin'
+[3.018s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.ps1'
+[3.020s] INFO:colcon.colcon_core.shell:Creating package descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.dsv'
+[3.021s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.sh'
+[3.022s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.bash'
+[3.023s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.zsh'
+[3.024s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/colcon-core/packages/ros_gz_example_bringup)
+[3.082s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_gz_example_bringup)
+[3.083s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup' for CMake module files
+[3.084s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup' for CMake config files
+[3.085s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_gz_example_bringup', 'cmake_prefix_path')
+[3.085s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/hook/cmake_prefix_path.ps1'
+[3.087s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/hook/cmake_prefix_path.dsv'
+[3.088s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/hook/cmake_prefix_path.sh'
+[3.091s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/bin'
+[3.091s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/lib/pkgconfig/ros_gz_example_bringup.pc'
+[3.092s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/lib/python3.10/site-packages'
+[3.092s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/bin'
+[3.093s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.ps1'
+[3.095s] INFO:colcon.colcon_core.shell:Creating package descriptor '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.dsv'
+[3.096s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.sh'
+[3.097s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.bash'
+[3.098s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/ros_gz_example_bringup/package.zsh'
+[3.099s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/gobilda_sim/ros_ws/install/ros_gz_example_bringup/share/colcon-core/packages/ros_gz_example_bringup)
+[4.040s] Level 1:colcon.colcon_core.shell:create_environment_hook('bump_and_go_lidar', 'pythonpath_develop')
+[4.041s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/build/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath_develop.ps1'
+[4.042s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/gobilda_sim/ros_ws/build/bump_and_go_lidar' returned '0': PYTHONPATH=/gobilda_sim/ros_ws/build/bump_and_go_lidar/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /gobilda_sim/ros_ws/build/bump_and_go_lidar/build --no-deps symlink_data
+[4.044s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/build/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath_develop.dsv'
+[4.045s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/build/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath_develop.sh'
+[4.046s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/bump_and_go_lidar' for CMake module files
+[4.048s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/bump_and_go_lidar' for CMake config files
+[4.049s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/bump_and_go_lidar/lib'
+[4.050s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/bump_and_go_lidar/bin'
+[4.050s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/pkgconfig/bump_and_go_lidar.pc'
+[4.050s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/python3.10/site-packages'
+[4.050s] Level 1:colcon.colcon_core.shell:create_environment_hook('bump_and_go_lidar', 'pythonpath')
+[4.051s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath.ps1'
+[4.052s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath.dsv'
+[4.053s] INFO:colcon.colcon_core.shell:Creating environment hook '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath.sh'
+[4.054s] Level 1:colcon.colcon_core.environment:checking '/gobilda_sim/ros_ws/install/bump_and_go_lidar/bin'
+[4.054s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(bump_and_go_lidar)
+[4.055s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/package.ps1'
+[4.056s] INFO:colcon.colcon_core.shell:Creating package descriptor '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/package.dsv'
+[4.058s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/package.sh'
+[4.059s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/package.bash'
+[4.060s] INFO:colcon.colcon_core.shell:Creating package script '/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar/package.zsh'
+[4.061s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/gobilda_sim/ros_ws/install/bump_and_go_lidar/share/colcon-core/packages/bump_and_go_lidar)
+[4.062s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[4.063s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[4.063s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[4.063s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[4.116s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[4.116s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[4.116s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[4.116s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[4.127s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.Spawn.ExecFailed: /usr/bin/dbus-launch terminated abnormally without any error message
+[4.128s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[4.130s] INFO:colcon.colcon_core.shell:Creating prefix script '/gobilda_sim/ros_ws/install/local_setup.ps1'
+[4.134s] INFO:colcon.colcon_core.shell:Creating prefix util module '/gobilda_sim/ros_ws/install/_local_setup_util_ps1.py'
+[4.138s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/gobilda_sim/ros_ws/install/setup.ps1'
+[4.141s] INFO:colcon.colcon_core.shell:Creating prefix script '/gobilda_sim/ros_ws/install/local_setup.sh'
+[4.143s] INFO:colcon.colcon_core.shell:Creating prefix util module '/gobilda_sim/ros_ws/install/_local_setup_util_sh.py'
+[4.146s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/gobilda_sim/ros_ws/install/setup.sh'
+[4.148s] INFO:colcon.colcon_core.shell:Creating prefix script '/gobilda_sim/ros_ws/install/local_setup.bash'
+[4.151s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/gobilda_sim/ros_ws/install/setup.bash'
+[4.155s] INFO:colcon.colcon_core.shell:Creating prefix script '/gobilda_sim/ros_ws/install/local_setup.zsh'
+[4.156s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/gobilda_sim/ros_ws/install/setup.zsh'

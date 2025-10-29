@@ -1,0 +1,19 @@
+[1.293s] Invoking command in '/gobilda_sim/ros_ws/build/bump_and_go_lidar': PYTHONPATH=/gobilda_sim/ros_ws/build/bump_and_go_lidar/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /gobilda_sim/ros_ws/build/bump_and_go_lidar/build --no-deps symlink_data
+[1.715s] running develop
+[1.717s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.717s]   warnings.warn(
+[1.957s] running egg_info
+[1.957s] writing bump_and_go_lidar.egg-info/PKG-INFO
+[1.958s] writing dependency_links to bump_and_go_lidar.egg-info/dependency_links.txt
+[1.960s] writing entry points to bump_and_go_lidar.egg-info/entry_points.txt
+[1.960s] writing requirements to bump_and_go_lidar.egg-info/requires.txt
+[1.960s] writing top-level names to bump_and_go_lidar.egg-info/top_level.txt
+[1.964s] reading manifest file 'bump_and_go_lidar.egg-info/SOURCES.txt'
+[1.966s] writing manifest file 'bump_and_go_lidar.egg-info/SOURCES.txt'
+[1.970s] running build_ext
+[1.970s] Creating /gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/python3.10/site-packages/bump-and-go-lidar.egg-link (link to .)
+[1.971s] Installing control_node script to /gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/bump_and_go_lidar
+[1.973s] 
+[1.974s] Installed /gobilda_sim/ros_ws/build/bump_and_go_lidar
+[1.974s] running symlink_data
+[2.029s] Invoked command in '/gobilda_sim/ros_ws/build/bump_and_go_lidar' returned '0': PYTHONPATH=/gobilda_sim/ros_ws/build/bump_and_go_lidar/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /gobilda_sim/ros_ws/build/bump_and_go_lidar/build --no-deps symlink_data

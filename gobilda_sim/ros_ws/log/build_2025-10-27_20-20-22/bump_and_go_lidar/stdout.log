@@ -1,0 +1,21 @@
+running develop
+running egg_info
+creating bump_and_go_lidar.egg-info
+writing bump_and_go_lidar.egg-info/PKG-INFO
+writing dependency_links to bump_and_go_lidar.egg-info/dependency_links.txt
+writing entry points to bump_and_go_lidar.egg-info/entry_points.txt
+writing requirements to bump_and_go_lidar.egg-info/requires.txt
+writing top-level names to bump_and_go_lidar.egg-info/top_level.txt
+writing manifest file 'bump_and_go_lidar.egg-info/SOURCES.txt'
+reading manifest file 'bump_and_go_lidar.egg-info/SOURCES.txt'
+writing manifest file 'bump_and_go_lidar.egg-info/SOURCES.txt'
+running build_ext
+Creating /gobilda_sim/ros_ws/install/bump_and_go_lidar/lib/python3.10/site-packages/bump-and-go-lidar.egg-link (link to .)
+
+Installed /gobilda_sim/ros_ws/build/bump_and_go_lidar
+running symlink_data
+creating /gobilda_sim/ros_ws/install/bump_and_go_lidar/share/ament_index
+creating /gobilda_sim/ros_ws/install/bump_and_go_lidar/share/ament_index/resource_index
+creating /gobilda_sim/ros_ws/install/bump_and_go_lidar/share/ament_index/resource_index/packages
+symbolically linking /gobilda_sim/ros_ws/build/bump_and_go_lidar/resource/bump_and_go_lidar -> /gobilda_sim/ros_ws/install/bump_and_go_lidar/share/ament_index/resource_index/packages
+symbolically linking /gobilda_sim/ros_ws/build/bump_and_go_lidar/package.xml -> /gobilda_sim/ros_ws/install/bump_and_go_lidar/share/bump_and_go_lidar

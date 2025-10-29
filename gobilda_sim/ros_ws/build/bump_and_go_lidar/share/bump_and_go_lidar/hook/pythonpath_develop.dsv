@@ -1,0 +1,1 @@
+prepend-non-duplicate;PYTHONPATH;/gobilda_sim/ros_ws/build/bump_and_go_lidar
