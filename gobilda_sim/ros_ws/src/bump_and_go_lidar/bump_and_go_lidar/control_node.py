@@ -48,12 +48,12 @@ class ControlNode(Node):
         # Forward message
         self.forward_msg = TwistStamped()
         self.forward_msg.twist = Twist()
-        self.forward_msg.twist.linear.x = 0.1
+        self.forward_msg.twist.linear.x = .25
         
 		# Backward message
         self.backward_msg = TwistStamped()
         self.backward_msg.twist = Twist()
-        self.backward_msg.twist.linear.x = -0.1
+        self.backward_msg.twist.linear.x = -0.25
 
         # Turn msg
         self.turn_msg = TwistStamped()

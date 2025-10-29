@@ -1,0 +1,9 @@
+source;share/bump_and_go_lidar/hook/pythonpath.ps1
+source;share/bump_and_go_lidar/hook/pythonpath.dsv
+source;share/bump_and_go_lidar/hook/pythonpath.sh
+source;share/bump_and_go_lidar/hook/ament_prefix_path.ps1
+source;share/bump_and_go_lidar/hook/ament_prefix_path.dsv
+source;share/bump_and_go_lidar/hook/ament_prefix_path.sh
+source;../../build/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath_develop.ps1
+source;../../build/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath_develop.dsv
+source;../../build/bump_and_go_lidar/share/bump_and_go_lidar/hook/pythonpath_develop.sh

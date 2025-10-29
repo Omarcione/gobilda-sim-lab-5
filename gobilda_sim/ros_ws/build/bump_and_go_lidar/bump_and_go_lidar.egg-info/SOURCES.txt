@@ -10,4 +10,5 @@ bump_and_go_lidar.egg-info/entry_points.txt
 bump_and_go_lidar.egg-info/requires.txt
 bump_and_go_lidar.egg-info/top_level.txt
 bump_and_go_lidar.egg-info/zip-safe
+launch/bump_and_go_lidar_launch.py
 resource/bump_and_go_lidar

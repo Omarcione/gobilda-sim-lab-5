@@ -1,0 +1,14 @@
+[0.000000] (-) TimerEvent: {}
+[0.001163] (bump_and_go_lidar) JobQueued: {'identifier': 'bump_and_go_lidar', 'dependencies': OrderedDict()}
+[0.001277] (ros_gz_example_description) JobQueued: {'identifier': 'ros_gz_example_description', 'dependencies': OrderedDict()}
+[0.001339] (ros_gz_example_gazebo) JobQueued: {'identifier': 'ros_gz_example_gazebo', 'dependencies': OrderedDict({'ros_gz_example_description': '/home/omarcion/CPE416/lab5/gobilda_sim/ros_ws/install/ros_gz_example_description'})}
+[0.001400] (ros_gz_example_bringup) JobQueued: {'identifier': 'ros_gz_example_bringup', 'dependencies': OrderedDict({'ros_gz_example_description': '/home/omarcion/CPE416/lab5/gobilda_sim/ros_ws/install/ros_gz_example_description', 'ros_gz_example_gazebo': '/home/omarcion/CPE416/lab5/gobilda_sim/ros_ws/install/ros_gz_example_gazebo'})}
+[0.003286] (ros_gz_example_description) JobStarted: {'identifier': 'ros_gz_example_description'}
+[0.063143] (bump_and_go_lidar) JobStarted: {'identifier': 'bump_and_go_lidar'}
+[0.090198] (bump_and_go_lidar) StderrLine: {'line': b'Traceback (most recent call last):\n  File "/usr/lib/python3/dist-packages/colcon_core/executor/__init__.py", line 91, in __call__\n    rc = await self.task(*args, **kwargs)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3/dist-packages/colcon_core/task/__init__.py", line 93, in __call__\n    return await task_method(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3/dist-packages/colcon_ros/task/ament_python/build.py", line 40, in build\n    additional_hooks = create_environment_hook(\n                       ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3/dist-packages/colcon_core/shell/__init__.py", line 444, in create_environment_hook\n    raise RuntimeError(\nRuntimeError: Could not find a primary shell extension for creating an environment hook\n'}
+[0.092896] (bump_and_go_lidar) JobEnded: {'identifier': 'bump_and_go_lidar', 'rc': 1}
+[0.095197] (ros_gz_example_description) JobEnded: {'identifier': 'ros_gz_example_description', 'rc': 'SIGINT'}
+[0.099131] (-) TimerEvent: {}
+[0.102329] (ros_gz_example_gazebo) JobSkipped: {'identifier': 'ros_gz_example_gazebo'}
+[0.102411] (ros_gz_example_bringup) JobSkipped: {'identifier': 'ros_gz_example_bringup'}
+[0.102440] (-) EventReactorShutdown: {}

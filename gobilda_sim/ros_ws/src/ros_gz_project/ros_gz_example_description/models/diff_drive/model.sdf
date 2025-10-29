@@ -138,7 +138,7 @@
       </link>
 
       <link name="lidar_link">
-        <pose>0 0 0.5 0 0 0</pose>
+        <pose>0.5 -0.25 0.5 0 0 0</pose>
         <!-- Edit the line ABOVE! -->
         <!-- Values are: -->
         <!-- x y z roll pitch yaw -->
