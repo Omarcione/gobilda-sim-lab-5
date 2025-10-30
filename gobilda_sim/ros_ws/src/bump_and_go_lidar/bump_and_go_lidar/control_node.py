@@ -48,27 +48,59 @@ class ControlNode(Node):
         # Forward message
         self.forward_msg = TwistStamped()
         self.forward_msg.twist = Twist()
-        self.forward_msg.twist.linear.x = .25
+        self.forward_msg.twist.linear.x = 1.0
         
 		# Backward message
         self.backward_msg = TwistStamped()
         self.backward_msg.twist = Twist()
-        self.backward_msg.twist.linear.x = -0.25
+        self.backward_msg.twist.linear.x = -1.0
 
         # Turn msg
         self.turn_msg = TwistStamped()
         self.backward_msg.twist = Twist()
-        self.turn_msg.twist.angular.z = math.pi / 80  # 22.5 degrees per second
+        self.turn_msg.twist.angular.z = math.pi / 10  
+
+
+
+    def get_distance(self, msg: LaserScan, center_angle: float, fov: int) -> float:
+        min_distance = float('inf')
+        angle_range = math.radians(fov / 2)
+        cur_angle = msg.angle_min
+        center_angle = math.radians(center_angle)
+        if center_angle > math.pi:
+            center_angle -= 2 * math.pi
+        elif center_angle <= -math.pi:
+            center_angle += 2 * math.pi
+        min_angle = center_angle - angle_range
+        max_angle = center_angle + angle_range
+
+        for dist in msg.ranges:
+            if not math.isfinite(dist) or dist < msg.range_min or dist > msg.range_max:
+                cur_angle += msg.angle_increment
+                continue
+
+            # handle wraparound in [-pi, pi]
+            if (min_angle <= max_angle and min_angle <= cur_angle <= max_angle) or \
+            (min_angle > max_angle and (cur_angle >= min_angle or cur_angle <= max_angle)):
+                min_distance = min(min_distance, dist)
+
+            cur_angle += msg.angle_increment
+
+        return min_distance
 
 
     # Callback for the events
     
     def lidar_callback(self, msg):
         # Get the distance in front and back of the robot
-        front_index = len(msg.ranges) // 2
-        self.front_distance = msg.ranges[front_index] # get front distance
-        self.back_distance = msg.ranges[(front_index + 180) % len(msg.ranges)] # get back distance
-        self.get_logger().info(f'Front distance: {self.front_distance:.2f} m')
+        front_angle = 0
+        self.front_distance = self.get_distance(msg, front_angle, 60) # get front distance
+        back_angle = 180
+        self.back_distance = self.get_distance(msg, back_angle, 60) # get back distance
+        if self.state == State.Forward or self.state == State.Turn:
+            self.get_logger().info(f'Front distance: {self.front_distance:.2f} m')
+        if self.state == State.Backward:
+            self.get_logger().info(f'Back distance: {self.back_distance:.2f} m')
 
         
     def timer_callback(self):        
@@ -76,7 +108,7 @@ class ControlNode(Node):
         match self.state:
             case State.Forward:
                 # go forward until obstacle is detected
-                if self.front_distance < 1:
+                if self.front_distance < 2:
                     self.state = State.Backward
                     self.backup_timer = 0  # reset backup timer
                     self.get_logger().info('Robot is Moving Backward!')
@@ -85,8 +117,9 @@ class ControlNode(Node):
                 self.publisher_.publish(msg)
 
             case State.Backward:
+                self.get_logger().info(f'Backing up for {self.backup_timer:.1f} seconds')
                 # go backward for 1 second or until back is obstructed
-                if self.back_distance < 1 or self.backup_timer >= 1: 
+                if self.back_distance < 1 or self.backup_timer >= 3:
                     self.state = State.Turn
                     self.get_logger().info('Robot is Turning!')
                     return

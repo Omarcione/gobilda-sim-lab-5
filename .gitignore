@@ -1,0 +1,5 @@
+#build
+/gobilda_sim/ros_ws/log/*
+/gobilda_sim/ros_ws/build/*
+
+*.pyc
