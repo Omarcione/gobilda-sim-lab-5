@@ -1,3 +1,0 @@
-[console_scripts]
-control_node = bump_and_go_lidar.control_node:main
-

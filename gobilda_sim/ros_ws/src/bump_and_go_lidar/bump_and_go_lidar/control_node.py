@@ -57,7 +57,7 @@ class ControlNode(Node):
 
         # Turn msg
         self.turn_msg = TwistStamped()
-        self.backward_msg.twist = Twist()
+        self.turn_msg.twist = Twist()
         self.turn_msg.twist.angular.z = math.pi / 10  
 
 
