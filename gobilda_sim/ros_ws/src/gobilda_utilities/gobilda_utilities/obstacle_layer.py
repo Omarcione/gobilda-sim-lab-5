@@ -48,6 +48,9 @@ class LocalCostmap(Node):
         origin.orientation = Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)
         self.publish_map.info.origin = origin
 
+        # initialize all cells to UNKNOWN
+        self.publish_map.data = [self.UNKNOWN] * (self.map_width * self.map_height)
+
     ''' Meters in robot frame -> map indices (mx, my). Returns None if out of bounds. '''
     # Input: (x, y) coordinates of a point in the Cartesian plane
     # Output: Corresponding cell in the occupancy grid
@@ -111,10 +114,20 @@ class LocalCostmap(Node):
             current_angle = msg.angle_min
             for range in msg.ranges:
                 if isfinite(range):
+                    # Calculate x and y meter values from robot
                     x_dist = range * cos(current_angle)
                     y_dist = range * sin(current_angle)
+
+                    # Get cell location from meter location
                     x_cell, y_cell = self.world_to_map(x_dist, y_dist)
+
+                    # Label end cell as obstacle
+                    self.publish_map.data[y_cell, x_cell] = 100
+
+                    # Label raytrace cells as free
                     free_cells = self.raytrace(x_cell, y_cell)
+                    for cell in free_cells:
+                        self.publish_map.data[cell[1], cell[0]] = 0
                 current_angle += msg.angle_increment
 
         # Populate OccupancyGrid message
