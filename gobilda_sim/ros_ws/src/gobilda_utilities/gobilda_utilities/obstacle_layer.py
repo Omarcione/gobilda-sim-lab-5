@@ -55,8 +55,28 @@ class LocalCostmap(Node):
     # Input: 2-points on the Cartesian plane (i.e. a line)
     # (The first point is the robot origin, while the sencond is a single beam's endpoint)
     # Output: All the cells that that the beam crosses. i.e. the free cells.
-    def bresenham_line_algorithm(self, x0, y0, x1, y1):        
-        return free_space_cells
+    def bresenham_line_algorithm(self, x0, y0, x1, y1):
+        freespace_cells = []
+        
+        dx = abs(x1 - x0)
+        sx = 1 if x0 < x1 else -1
+        dy = -abs(y1 - y0)
+        sy = 1 if y0 < y1 else -1
+        err = dx + dy
+        
+        while(True):
+            freespace_cells.append((x0, y0)) # add to empty
+            e2 = 2 * err 
+            if e2 >= dy: # if closer to next x cell
+                if x0 == x1: break
+                err += dy
+                x0 += sx # step in x
+            if e2 <= dx: # if closer
+                if y0 == y1: break
+                err += dx
+                y0 += sy
+
+        return freespace_cells
     
     ''' Cache the most recent LaserScan'''
     def laser_callback(self, msg: LaserScan):
