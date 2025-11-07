@@ -22,6 +22,9 @@ class LocalCostmap(Node):
         self.FREE = 0
         self.OCCUPIED = 100
 
+        # Lidar Scan cache
+        self.latest_scan = None
+
         # Outgoing OccupancyGrid message (we'll fill .info and .header)
         self.publish_map = OccupancyGrid()
         self._init_map_info()
@@ -49,6 +52,12 @@ class LocalCostmap(Node):
     # Input: (x, y) coordinates of a point in the Cartesian plane
     # Output: Corresponding cell in the occupancy grid
     def world_to_map(self, x_m, y_m):
+        # coordinate (0,0) is at bottom left of the map
+        # Calculate meter distance from robot (at the center) and convert to cell index
+        mx = int((x_m / self.map_resolution) + self.cx)
+        my = int((y_m / self.map_resolution) + self.cy)
+        if mx < 0 or mx >= self.map_width or my < 0 or my >= self.map_height:
+            return None, None
         return mx, my
 
     # Bresenham's Line Algorithm: inclusive endpoints
@@ -80,6 +89,7 @@ class LocalCostmap(Node):
     
     ''' Cache the most recent LaserScan'''
     def laser_callback(self, msg: LaserScan):
+        self.latest_scan = msg
         return
 
     # Input: x & y coordinates;
@@ -87,12 +97,25 @@ class LocalCostmap(Node):
     def raytrace(self, x_cell, y_cell):
         # Compute free cells for a single beam
         # This function should call self.bresenham_line_algorithm
-        return free_cells
+        return self.bresenham_line_algorithm(self.cx, self.cy, x_cell, y_cell)
 
     ''' Build and Publish the Occupancy Grid from the most recent LiDAR Scan '''
     def build_occupancy_grid(self):
         # First, check that the scan data is ready
         # Second, iterate through beams to create the map!
+
+        if self.latest_scan:
+            msg = self.latest_scan
+            self.latest_scan = None  # clear cache
+            
+            current_angle = msg.angle_min
+            for range in msg.ranges:
+                if isfinite(range):
+                    x_dist = range * cos(current_angle)
+                    y_dist = range * sin(current_angle)
+                    x_cell, y_cell = self.world_to_map(x_dist, y_dist)
+                    free_cells = self.raytrace(x_cell, y_cell)
+                current_angle += msg.angle_increment
 
         # Populate OccupancyGrid message
         self.publish_map.header.stamp = self.get_clock().now().to_msg()
