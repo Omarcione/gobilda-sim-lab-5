@@ -79,6 +79,9 @@ class EKFNode(Node):
 		# imu sub
         self.imu_sub = self.create_subscription(Imu,'/oak/camera/imu_data/', self.imu_callback, 10)
 
+        # odom pub
+        self.odom_pub = self.create_publisher(Odometry, '/odometry/filtered', 10)
+
     def ekf_step(self):
         # Predict using last IMU
         if self.imu_queue:
@@ -181,6 +184,22 @@ class EKFNode(Node):
         You can use the ros2bag CLI to record the state of the robot after it is published. 
         Then you can write a python script to load the data and plot it.
         """
+        # Create Odom msg
+        odom_msg = Odometry()
+        # Fill in header
+        odom_msg.header.stamp = self.get_clock().now().to_msg()
+        odom_msg.header.frame_id = "odom"
+        odom_msg.child_frame_id = "base_link"
+        # Fill in position
+        odom_msg.pose.pose.position.x = self.state_vector[0, 0]
+        odom_msg.pose.pose.position.y = self.state_vector[1, 0]
+        odom_msg.pose.pose.position.z = 0.0  # No z element
+        # Fill in orientation
+        odom_msg.pose.pose.orientation = quaternion_from_yaw(self.state_vector[2, 0])
+        # Fill in covariance
+        odom_msg.pose.covariance = self.covariance_matrix.flatten().tolist() + [0]*27  # Fill rest with zeros to make 6x6
+        # Publish
+        self.odom_pub.publish(odom_msg)
         return
     
     # Callbacks for the events
