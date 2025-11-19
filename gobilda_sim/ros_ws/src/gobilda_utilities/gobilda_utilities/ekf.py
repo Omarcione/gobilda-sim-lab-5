@@ -1,9 +1,35 @@
 from collections import deque
 import numpy as np
+import math
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Odometry, Imu # type: ignore
+from geometry_msgs.msg import Quaternion   # for output odom orientation
+
             
+def wrap_angle(angle: float) -> float:
+    """Wrap angle to [-pi, pi]."""
+    return math.atan2(math.sin(angle), math.cos(angle))
+
+# Extract yaw from quaternion for LiDAR odom
+def yaw_from_quaternion(q: Quaternion) -> float:
+    """Extract yaw (theta) from a geometry_msgs/Quaternion."""
+    # Standard yaw extraction from quaternion
+    siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+    cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+    return math.atan2(siny_cosp, cosy_cosp)
+
+# Use this to create a Quaternion from yaw for publishing
+def quaternion_from_yaw(yaw: float) -> Quaternion:
+    """Create a Quaternion from yaw (theta) only (no roll/pitch)."""
+    q = Quaternion()
+    q.w = math.cos(yaw / 2.0)
+    q.z = math.sin(yaw / 2.0)
+    q.x = 0.0
+    q.y = 0.0
+    return q
+
+
 class EKFNode(Node):
 
     def __init__(self):
@@ -28,6 +54,13 @@ class EKFNode(Node):
         # Process noise (Q)
         # Larger value for theta since IMU drift mainly affects orientation
         self.Q = np.diag([1e-4, 1e-4, 1e-3])
+
+        # Measurement noise (R) – LiDAR odom uncertainty 
+        # ChatGPT suggested these based on typical LiDAR odometry performance so may need tuning
+        self.R = np.diag([0.01, 0.01, 0.02])
+
+        # Observation model (H): LiDAR directly measures [x, y, theta]
+        self.H = np.eye(3)
 
         # Buffers for incoming data
         self.imu_queue = deque()    # Predict step
@@ -105,6 +138,40 @@ class EKFNode(Node):
         Update step using LiDAR odometry:
         Measurement z = [x_lidar, y_lidar, theta_lidar]^T
         """
+        # --- Build measurement vector z ---
+        x_measurement = lidar_msg.pose.pose.position.x
+        y_measurement = lidar_msg.pose.pose.position.y
+        theta_measurement = yaw_from_quaternion(lidar_msg.pose.pose.orientation)
+
+        z = np.array([[x_measurement],
+                      [y_measurement],
+                      [theta_measurement]])
+
+        # --- Innovation y = z - h(x) ---
+        # h(x) = x for this model, since LiDAR directly measures state
+        y = z - self.state_vector
+        # Wrap the angle residual incase new theta crosses the -pi to pi boundary
+        y[2, 0] = wrap_angle(y[2, 0])
+
+        # --- Innovation covariance S ---
+        P = self.covariance_matrix
+        H = self.H
+        R = self.R
+
+        S = H @ P @ H.T + R
+
+        # --- Kalman gain ---
+        K = P @ H.T @ np.linalg.inv(S)
+
+        # --- State update ---
+        self.state_vector = self.state_vector + K @ y
+
+        # Wrap theta to [-pi, pi] after update
+        self.state_vector[2, 0] = wrap_angle(self.state_vector[2, 0])
+
+        # --- Covariance update ---
+        I = np.eye(3)
+        self.covariance_matrix = (I - K @ H) @ P
         return
     
     def publish_state(self):
