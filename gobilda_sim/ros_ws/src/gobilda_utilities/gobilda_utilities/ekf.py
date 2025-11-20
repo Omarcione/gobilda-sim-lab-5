@@ -47,8 +47,8 @@ class EKFNode(Node):
             # [theta]]
 
             # Initial covariance matrix:
-            # [[0.0001, 0.    , 0.    ],
-            # [0.    , 0.0001, 0.    ],
+            # [[0.00001, 0.    , 0.    ],
+            # [0.    , 0.00001, 0.    ],
             # [0.    , 0.    , 0.0001]]
 
         # Process noise (Q)
@@ -90,7 +90,7 @@ class EKFNode(Node):
 
         # Update if LiDAR available
         if self.odom_queue:
-            lidar_msg = self.lidar_queue.pop()
+            lidar_msg = self.odom_queue.pop()
             self.update(lidar_msg)
 
         # Publish fused state
@@ -120,20 +120,16 @@ class EKFNode(Node):
         theta = self.state_vector[2, 0]
 
         theta_prediction = theta + angular_velocity_z * dt
-        self.state_vector[2, 0] = theta_prediction
-
+        self.state_vector[2, 0] = wrap_angle(theta_prediction)
 
         ## Covariance
         # Motion model Jacobian F. Since we only predict theta, F is just identity.
         F = np.eye(3)
 
-        # Scale Q by dt (simple model: more time, more uncertainty)
-        Q_dt = self.Q * dt
-
         # Update covariance
         # @ == matrix multiplication
         # equation: P' = FPF^T + Q
-        self.covariance_matrix = F @ self.covariance_matrix @ F.T + Q_dt
+        self.covariance_matrix = F @ self.covariance_matrix @ F.T + self.Q
         return
     
     def update(self, lidar_msg):
@@ -197,18 +193,20 @@ class EKFNode(Node):
         # Fill in orientation
         odom_msg.pose.pose.orientation = quaternion_from_yaw(self.state_vector[2, 0])
         # Fill in covariance
-        odom_msg.pose.covariance = self.covariance_matrix.flatten().tolist() + [0]*27  # Fill rest with zeros to make 6x6
+        odom_msg.pose.covariance = ( # Fill rest with zeros to make 6x6
+            np.pad(self.covariance_matrix.flatten(), (0, 27), 'constant').tolist()
+        ) 
         # Publish
         self.odom_pub.publish(odom_msg)
         return
     
     # Callbacks for the events
     def imu_callback(self, msg):
-        self.imu_buffer.append(msg)
+        self.imu_queue.append(msg)
         return
     
     def odom_callback(self, msg):
-        self.odom_buffer.append(msg)
+        self.odom_queue.append(msg)
         return
     
     def timer_callback(self): 
