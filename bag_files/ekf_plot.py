@@ -16,9 +16,10 @@ def yaw_from_quaternion(q: Quaternion) -> float:
     cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
     return math.atan2(siny_cosp, cosy_cosp)
 
-def extract_ekf_data(data: list[(float, float, float, float, list[float])]):
+def extract_ekf_data(results: list[(float, float, float, float, list[float])]):
     storage_options = rosbag2_py.StorageOptions(
-        uri='/ekf_bag', storage_id='sqlite3'
+        uri='/absolute/or/relative/path/to/ekf_bag',  # e.g. './ekf_bag'
+        storage_id='sqlite3'
     )
     converter_options = rosbag2_py.ConverterOptions('', '')
 
@@ -26,16 +27,16 @@ def extract_ekf_data(data: list[(float, float, float, float, list[float])]):
     reader.open(storage_options, converter_options)
 
     while reader.has_next():
-        (topic, data, t) = reader.read_next()
+        topic, raw_data, t = reader.read_next()
         if topic == '/ekf/odom':
             odom_msg = Odometry()
-            odom_msg.deserialize(data)
+            odom_msg.deserialize(raw_data)
             x = odom_msg.pose.pose.position.x
             y = odom_msg.pose.pose.position.y
-            # Extract yaw from quaternion
             theta = yaw_from_quaternion(odom_msg.pose.pose.orientation)
             covariance = odom_msg.pose.covariance
-            data.append((t, x, y, theta, covariance))
+            results.append((t, x, y, theta, covariance))
+
 
 def plot_ekf_results(data):
     fig, ax = plt.subplots(figsize=(8, 8))
