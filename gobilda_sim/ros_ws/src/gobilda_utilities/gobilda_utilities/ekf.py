@@ -3,7 +3,8 @@ import numpy as np
 import math
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Odometry, Imu # type: ignore
+from sensor_msgs.msg import Imu # type: ignore
+from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Quaternion   # for output odom orientation
 
             
@@ -74,10 +75,10 @@ class EKFNode(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
 		# lidar odom subscriber
-        self.odom_sub = self.create_subscription(Odometry,'/kiss-icp/odom', self.odom_callback, 10)
+        self.odom_sub = self.create_subscription(Odometry,'/kiss/odometry', self.odom_callback, 10)
 		
 		# imu sub
-        self.imu_sub = self.create_subscription(Imu,'/oak/camera/imu_data/', self.imu_callback, 10)
+        self.imu_sub = self.create_subscription(Imu,'/oakd/imu/data', self.imu_callback, 10)
 
         # odom pub
         self.odom_pub = self.create_publisher(Odometry, '/odometry/filtered', 10)
@@ -116,10 +117,10 @@ class EKFNode(Node):
         
 
         ## Predict theta from angular velocity
-        angular_velocity_z = imu_msg.angular_velocity.z
+        angular_velocity_x = imu_msg.angular_velocity.x
         theta = self.state_vector[2, 0]
 
-        theta_prediction = theta + angular_velocity_z * dt
+        theta_prediction = theta + angular_velocity_x * dt
         self.state_vector[2, 0] = wrap_angle(theta_prediction)
 
         ## Covariance

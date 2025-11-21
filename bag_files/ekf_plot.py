@@ -38,59 +38,47 @@ def extract_ekf_data(data: list[(float, float, float, float, list[float])]):
             data.append((t, x, y, theta, covariance))
 
 def plot_ekf_results(data):
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
-    # --- Left plot: XY trajectory ---
-    ax1.set_title("EKF Position and Covariance Ellipses")
-    ax1.set_xlabel("X [m]")
-    ax1.set_ylabel("Y [m]")
-    ax1.axis("equal")
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax.set_title("EKF XY Position with Covariance")
+    ax.set_xlabel("X [m]")
+    ax.set_ylabel("Y [m]")
+    ax.axis("equal")
 
     xs = [d[1] for d in data]
     ys = [d[2] for d in data]
-    thetas = [d[3] for d in data]
     covs = [d[4] for d in data]
-    ts = [d[0] for d in data]
 
-    ax1.plot(xs, ys, 'b-', label='EKF Path')
+    # Plot trajectory line
+    ax.plot(xs, ys, 'b-', label='Path', linewidth=1.2)
 
-    for (x, y, theta, cov) in zip(xs, ys, thetas, covs):
-        ax1.arrow(x, y, 0.2 * math.cos(theta), 0.2 * math.sin(theta),
-                  head_width=0.05, head_length=0.1, fc='r', ec='r')
+    for (x, y, cov) in zip(xs, ys, covs):
+        # Extract x–y covariance terms
+        cov_xx = cov[0]
+        cov_yy = cov[7]
+        cov_xy = cov[1]
 
-        cov_xy = np.array([[cov[0], cov[1]], [cov[6], cov[7]]])
-        try:
-            w, v = np.linalg.eig(cov_xy)
-            w = np.clip(w, 0, None)  # avoid NaNs from negatives
-            angle = math.degrees(math.atan2(v[1, 0], v[0, 0]))
-            width, height = 2 * np.sqrt(w)
-            ell = Ellipse((x, y), width, height, angle=angle,
-                          edgecolor='g', facecolor='none', alpha=0.6)
-            ax1.add_patch(ell)
-        except np.linalg.LinAlgError:
-            pass
+        # Compute equivalent radius = sqrt of largest eigenvalue
+        cov_xy_mat = np.array([[cov_xx, cov_xy],
+                               [cov_xy, cov_yy]])
+        eigvals, _ = np.linalg.eig(cov_xy_mat)
+        radius = math.sqrt(max(eigvals))  # 1-sigma radius
 
-    # --- Right plot: covariance vs time ---
-    ax2.set_title("Position Covariance Over Time")
-    ax2.set_xlabel("Time (s)")
-    ax2.set_ylabel("Variance [m²]")
+        # Scale for visibility (adjust as needed)
+        scale = 3.0
+        radius *= scale
 
-    var_x = [cov[0] for cov in covs]
-    var_y = [cov[7] for cov in covs]
-    ax2.plot(ts, var_x, 'r-', label='Var(X)')
-    ax2.plot(ts, var_y, 'b-', label='Var(Y)')
-    ax2.legend()
-    ax2.grid(True)
+        circ = plt.Circle((x, y), radius, color='g', fill=False, alpha=0.5)
+        ax.add_patch(circ)
 
-    # --- Center around (0,0) in left plot ---
+    # Center plot around origin
     max_range = max(abs(min(xs + [0])), abs(max(xs + [0])),
                     abs(min(ys + [0])), abs(max(ys + [0])))
-    ax1.set_xlim(-max_range, max_range)
-    ax1.set_ylim(-max_range, max_range)
-    ax1.plot(0, 0, 'ko', label='Origin')
+    ax.set_xlim(-max_range, max_range)
+    ax.set_ylim(-max_range, max_range)
+    ax.plot(0, 0, 'ko', label='Origin')
 
-    plt.tight_layout()
+    ax.legend()
     plt.show()
-
 
 def main(): 
     data = [] # list of tuples (time, x, y, theta, covariance)
