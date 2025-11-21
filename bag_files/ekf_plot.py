@@ -33,10 +33,7 @@ def extract_ekf_data(data: list[(float, float, float, float, list[float])]):
             x = odom_msg.pose.pose.position.x
             y = odom_msg.pose.pose.position.y
             # Extract yaw from quaternion
-            q = odom_msg.pose.pose.orientation
-            siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
-            cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
-            theta = math.atan2(siny_cosp, cosy_cosp)
+            theta = yaw_from_quaternion(odom_msg.pose.pose.orientation)
             covariance = odom_msg.pose.covariance
             data.append((t, x, y, theta, covariance))
 
@@ -75,6 +72,11 @@ def plot_ekf_results(data):
         ax.add_patch(ell)
 
     ax.legend()
+    # Center the plot around (0, 0)
+    ax.set_xlim(min(xs + [0]) - 1, max(xs + [0]) + 1)
+    ax.set_ylim(min(ys + [0]) - 1, max(ys + [0]) + 1)
+    ax.plot(0, 0, 'ko', label='Origin')
+
     plt.show()
 
 
