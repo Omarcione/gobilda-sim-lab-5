@@ -18,8 +18,7 @@ def yaw_from_quaternion(q: Quaternion) -> float:
 
 def extract_ekf_data(results: list[(float, float, float, float, list[float])]):
     storage_options = rosbag2_py.StorageOptions(
-        uri='/absolute/or/relative/path/to/ekf_bag',  # e.g. './ekf_bag'
-        storage_id='sqlite3'
+        uri='/ekf_bag', storage_id='sqlite3'
     )
     converter_options = rosbag2_py.ConverterOptions('', '')
 
@@ -28,7 +27,7 @@ def extract_ekf_data(results: list[(float, float, float, float, list[float])]):
 
     while reader.has_next():
         topic, raw_data, t = reader.read_next()
-        if topic == '/ekf/odom':
+        if topic == '/odometry/filtered':
             odom_msg = Odometry()
             odom_msg.deserialize(raw_data)
             x = odom_msg.pose.pose.position.x
@@ -85,6 +84,7 @@ def main():
     data = [] # list of tuples (time, x, y, theta, covariance)
 
     extract_ekf_data(data)
+    print(f"Loaded {len(data)} messages from bag")
     plot_ekf_results(data)  
 
 if __name__ == "__main__":
