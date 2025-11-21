@@ -38,45 +38,57 @@ def extract_ekf_data(data: list[(float, float, float, float, list[float])]):
             data.append((t, x, y, theta, covariance))
 
 def plot_ekf_results(data):
-    fig, ax = plt.subplots(figsize=(8, 8))
-    ax.set_title("EKF Position and Covariance")
-    ax.set_xlabel("X [m]")
-    ax.set_ylabel("Y [m]")
-    ax.axis("equal")
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+    # --- Left plot: XY trajectory ---
+    ax1.set_title("EKF Position and Covariance Ellipses")
+    ax1.set_xlabel("X [m]")
+    ax1.set_ylabel("Y [m]")
+    ax1.axis("equal")
 
     xs = [d[1] for d in data]
     ys = [d[2] for d in data]
     thetas = [d[3] for d in data]
     covs = [d[4] for d in data]
+    ts = [d[0] for d in data]
 
-    # Plot trajectory
-    ax.plot(xs, ys, 'b-', label='EKF Path')
+    ax1.plot(xs, ys, 'b-', label='EKF Path')
 
-    # Plot poses and covariance ellipses
     for (x, y, theta, cov) in zip(xs, ys, thetas, covs):
-        # Orientation arrow
-        ax.arrow(x, y, 0.2 * math.cos(theta), 0.2 * math.sin(theta),
-                 head_width=0.05, head_length=0.1, fc='r', ec='r')
+        ax1.arrow(x, y, 0.2 * math.cos(theta), 0.2 * math.sin(theta),
+                  head_width=0.05, head_length=0.1, fc='r', ec='r')
 
-        # 2×2 covariance in x,y
-        cov_xy = np.array([[cov[0], cov[1]],
-                           [cov[6], cov[7]]])
+        cov_xy = np.array([[cov[0], cov[1]], [cov[6], cov[7]]])
+        try:
+            w, v = np.linalg.eig(cov_xy)
+            w = np.clip(w, 0, None)  # avoid NaNs from negatives
+            angle = math.degrees(math.atan2(v[1, 0], v[0, 0]))
+            width, height = 2 * np.sqrt(w)
+            ell = Ellipse((x, y), width, height, angle=angle,
+                          edgecolor='g', facecolor='none', alpha=0.6)
+            ax1.add_patch(ell)
+        except np.linalg.LinAlgError:
+            pass
 
-        # Eigen-decomposition to get ellipse
-        w, v = np.linalg.eig(cov_xy)
-        angle = math.degrees(math.atan2(v[1, 0], v[0, 0]))
-        width, height = 2 * np.sqrt(w)  # 1-sigma ellipse
+    # --- Right plot: covariance vs time ---
+    ax2.set_title("Position Covariance Over Time")
+    ax2.set_xlabel("Time (s)")
+    ax2.set_ylabel("Variance [m²]")
 
-        ell = Ellipse((x, y), width, height, angle=angle,
-                      edgecolor='g', facecolor='none', alpha=0.6)
-        ax.add_patch(ell)
+    var_x = [cov[0] for cov in covs]
+    var_y = [cov[7] for cov in covs]
+    ax2.plot(ts, var_x, 'r-', label='Var(X)')
+    ax2.plot(ts, var_y, 'b-', label='Var(Y)')
+    ax2.legend()
+    ax2.grid(True)
 
-    ax.legend()
-    # Center the plot around (0, 0)
-    ax.set_xlim(min(xs + [0]) - 1, max(xs + [0]) + 1)
-    ax.set_ylim(min(ys + [0]) - 1, max(ys + [0]) + 1)
-    ax.plot(0, 0, 'ko', label='Origin')
+    # --- Center around (0,0) in left plot ---
+    max_range = max(abs(min(xs + [0])), abs(max(xs + [0])),
+                    abs(min(ys + [0])), abs(max(ys + [0])))
+    ax1.set_xlim(-max_range, max_range)
+    ax1.set_ylim(-max_range, max_range)
+    ax1.plot(0, 0, 'ko', label='Origin')
 
+    plt.tight_layout()
     plt.show()
 
 
